@@ -1,0 +1,5 @@
+#!/bin/bash
+
+exec filebeat \ 
+	--path.config = /filebeat/config/filebeat.yml \
+	--path.data = /filebeat/data

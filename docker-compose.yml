@@ -1,0 +1,13 @@
+version: '2'
+services:
+  filebeat:
+    image: docker.bintray.io/jfrog/artifactory-oss:latest
+    volumes:
+    - /some/storage/path/data:/filebeat/data
+    - /some/storage/path/home:/filebeat/home
+    - /var/lib/docker/containers/:/var/lib/docker/containers
+    - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      httpd: true
+    
+   
