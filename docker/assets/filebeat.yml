@@ -4,8 +4,8 @@ filebeat.autodiscover:
       hints.enabled: true
       templates:
         - condition:
-            equals:
-              docker.container.labels.filebeat_enable: "true"
+            not.contains:
+              docker.container.labels.log_enabled: "false"
           config:
             - type: docker
               containers.ids:
