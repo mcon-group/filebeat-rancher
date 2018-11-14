@@ -14,8 +14,8 @@ filebeat.autodiscover:
               json.keys_under_root: true
               json.add_error_key: false
 processors:
-- add_cloud_metadata: ~
-- add_docker_metadata: ~ 
-  output.logstash:
+ - add_cloud_metadata: ~
+ - add_docker_metadata: ~ 
+output.logstash: 
     hosts: ["${LOGSTASH_HOST}:${LOGSTASH_PORT}"]
     bulk_max_size: 1024
