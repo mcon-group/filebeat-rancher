@@ -3,8 +3,7 @@ USER root
 RUN mkdir -p /filebeat/data /filebeat/config /filebeat/home /filebeat/logs
 COPY assets/filebeat.yml /filebeat/config/filebeat.yml
 COPY assets/docker-entrypoint /usr/local/bin/docker-entrypoint
-RUN chown -R filebeat:filebeat /filebeat/*; chmod 755 /usr/local/bin/docker-entrypoint; chmod -R 755 /filebeat
-USER filebeat
+RUN chown -R root:root /filebeat/*; chmod 755 /usr/local/bin/docker-entrypoint; chmod -R 755 /filebeat
 VOLUME /filebeat/data
 VOLUME /filebeat/config
 VOLUME /filebeat/home
