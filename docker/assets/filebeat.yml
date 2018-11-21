@@ -11,12 +11,13 @@ filebeat.autodiscover:
             - type: docker
               containers.ids:
                 - "${data.docker.container.id}"
-              json.message_key: log  
-              json.keys_under_root: true
-              json.add_error_key: false
+              #json.message_key: log  
+              #json.keys_under_root: true
+              #json.add_error_key: false
 processors:
  - add_cloud_metadata: ~
  - add_docker_metadata: ~ 
 output.logstash: 
     hosts: ["${LOGSTASH_HOST}:${LOGSTASH_PORT}"]
+    compression_level: 0
     bulk_max_size: 1024
