@@ -2,7 +2,9 @@ filebeat.autodiscover:
   providers:
     - type: docker
       hints.enabled: true
-      tags: ["${LOGSTASH_ENV}"]
+      fields:
+        env: "${LOGSTASH_ENV}"
+        fields_under_root: true      
       templates:
         - condition:
             not.contains:
